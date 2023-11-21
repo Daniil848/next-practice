@@ -1,0 +1,45 @@
+.header {
+  @apply fixed top-0 z-30 w-full bg-white border-b border-gray-200;
+
+  .wrapper {
+    @apply relative flex items-center justify-between max-w-6xl w-full h-full mx-auto my-2;
+
+    .headerLogo {
+      @apply bg-[url('../../img/bagpack.svg')] flex items-center w-10 h-10 bg-no-repeat;
+    }
+
+    .headerSearch {
+      @apply flex;
+
+      .headerSearchIcon {
+        @apply z-50 absolute top-3 pl-3 text-lg text-slate-500;
+      }
+      .headerSearchInput {
+        @apply block w-96 h-10 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-s-lg bg-white focus:outline-none focus:ring-blue-500 focus:border-blue-500;
+      }
+      .headerSearchButton {
+        @apply px-4 py-2 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-e-lg text-sm ;
+      }
+    }
+
+    .rightContent {
+      @apply flex;
+
+      .headerProfileBasket {
+        @apply w-10 h-10 z-30 mr-2 text-blue-700 text-3xl;
+      }
+    }
+
+    .registration {
+      @apply absolute -right-[370px] flex ml-2;
+
+      .registrationLogIn {
+        @apply px-5 py-2.5 font-medium rounded-lg text-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300;
+      }
+
+      .registrationSignIn {
+        @apply w-fit px-5 py-2.5 ml-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm  focus:outline-none;
+      }
+    }
+  }
+}
