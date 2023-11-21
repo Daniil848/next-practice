@@ -3,16 +3,21 @@ import type {Product} from "../types/types";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Products.module.scss";
-import SideBar from "./componets/SideBar";
+import SideBar from "../components/SideBar";
+import Link from "next/link";
 
 export default async function Home() {
   const products: Product[] = await getProducts();
-
+  
   return (
     <>
     <div className={styles.products}>
-      {products.map((product) => (
-        <div key={product.id} className={styles.product}>
+      {products?.map((product: Product) => (
+        <Link 
+          href={`/product/${product.id}`} 
+          key={product.id} 
+          className={styles.product}
+        >
           <div className={styles.productImgContainer}>
             <img src={product.image} alt="product-img" className={styles.productImg} />
           </div>
@@ -29,7 +34,7 @@ export default async function Home() {
               <button className={styles.productBuy}>Buy</button>
             </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
     <SideBar/>
