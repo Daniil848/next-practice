@@ -10,3 +10,10 @@ export type Product = {
     count : number,
   },
 };
+
+export type User = {
+  id : number,
+  email : string | number,
+  username : string | number,
+  password : string | number,
+};

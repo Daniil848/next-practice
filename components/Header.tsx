@@ -10,9 +10,23 @@ const Header = () => {
   const [signIn, setSignIn] = useState<boolean>(false);
   const [logIn, setLogIn] = useState<boolean>(false);
 
+  const handleLogIn = () => {
+    setLogIn(true);
+    setSignIn(false);
+  }
+  const handleSignIn = () => {
+    setSignIn(true);
+    setLogIn(false);
+  }
+
   return (
     <>
-      <Registration logIn={logIn} signIn={signIn}/>
+      <Registration 
+        logIn={logIn}
+        signIn={signIn}
+        closeLogIn={setLogIn}
+        closeSignIn={setSignIn}
+      />
       <header className={styles.header}>
         <div className={styles.wrapper}>
           <div>
@@ -29,11 +43,11 @@ const Header = () => {
           <div className={styles.registration}>
             <button 
               className={styles.registrationLogIn}
-              onClick={() => setLogIn(true)}
+              onClick={() => handleLogIn()}
             >Log in</button>
             <button 
               className={styles.registrationSignIn}
-              onClick={() => setSignIn(true)}
+              onClick={() => handleSignIn()}
             >Sign in</button>
           </div>
         </div>

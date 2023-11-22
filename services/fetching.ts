@@ -1,4 +1,4 @@
-import { Product } from "@/types/types";
+import { Product, User } from "@/types/types";
 import axios from "axios";
 
 export const getProducts = async () => {
@@ -35,4 +35,24 @@ export const getCategories = async () => {
   } catch (err) {
     console.log(err);
   };
-}
+};
+
+export const signInFetch =async (userDB : User) => {
+  try {
+    const {data} = await axios.post(`http://localhost:3001/users`, userDB);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  };
+};
+
+export const logInFetch = async (userDB : User) => {
+  try {
+    const {data} = await axios.get(`http://localhost:3001/users`);
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  };
+};
