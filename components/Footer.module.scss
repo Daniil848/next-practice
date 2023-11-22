@@ -1,5 +1,5 @@
 .footer {
-  @apply flex h-40 w-full mt-4 p-4 bg-white;
+  @apply flex shrink-0 h-40 w-full mt-4 p-4 bg-white;
 
   .wrapper {
     @apply flex justify-between max-w-6xl w-full h-full mx-auto my-2 animate-pulse;

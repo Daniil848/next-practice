@@ -2,7 +2,7 @@
   @apply fixed top-20 left-[102px] z-20 w-64 h-auto p-4 rounded-lg transition-transform -translate-x-full bg-white shadow sm:translate-x-0;
 
   .sideBarTitle {
-    @apply text-lg font-medium p-2;
+    @apply text-lg font-medium p-2 text-black;
   }
 
   .sideBarList {

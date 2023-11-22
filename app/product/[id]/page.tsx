@@ -3,6 +3,12 @@ import styles from "./ProductPage.module.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Product } from "@/types/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Product',
+  description: 'Product page',
+};
 
 type Props = {
   params : {
