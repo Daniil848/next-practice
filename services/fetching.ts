@@ -56,3 +56,14 @@ export const logInFetch = async (userDB : User) => {
     console.log(error);
   };
 };
+
+export const getProductsBySearch =async (search: string) => {
+  try {
+    const {data}: { data: Product[] | undefined } = await axios.get(`http://127.0.0.1:3001/products?q=${search}`);
+    console.log(data);
+    
+    return data;
+  } catch (err) {
+    console.log(err);
+  };
+}

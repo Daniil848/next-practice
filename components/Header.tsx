@@ -1,14 +1,25 @@
 'use client'
 
-import styles from "./Header.module.scss";
+import { FormEventHandler, useState } from "react";
+import useSWR from "swr";
+import { getProductsBySearch } from "@/services/fetching";
+import Registration from "./Registration";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
-import Registration from "./Registration";
+import styles from "./Header.module.scss";
 
 const Header = () => {
+  const { mutate } = useSWR("products");
+
   const [signIn, setSignIn] = useState<boolean>(false);
   const [logIn, setLogIn] = useState<boolean>(false);
+  const [search, setSearch] = useState<string>("");
+
+
+  const handleSearch= async () => {
+    const  products = await getProductsBySearch(search);
+    mutate(products);
+  };
 
   const handleLogIn = () => {
     setLogIn(true);
@@ -32,10 +43,26 @@ const Header = () => {
           <div>
             <div className={styles.headerLogo}></div>
           </div>
-          <form className={styles.headerSearch}> 
+          <form 
+            className={styles.headerSearch} 
+            onSubmit={(e)=> {
+              handleSearch()
+              e.preventDefault()
+            }}
+          > 
             <FontAwesomeIcon className={styles.headerSearchIcon} icon={faMagnifyingGlass}/>  
-            <input type="search" id="default-search" className={styles.headerSearchInput} placeholder="Search products" required></input>
-            <button type="submit" className={styles.headerSearchButton}>Search</button>
+            <input 
+              type="search" 
+              id="default-search" 
+              value={search} 
+              onChange={(e)=> setSearch(e.target.value)} 
+              className={styles.headerSearchInput} 
+              placeholder="Search products"
+            />
+            <button 
+              type="submit" 
+              className={styles.headerSearchButton} 
+            >Search</button>
           </form>
           <div className={styles.rightContent}>
             <button className={styles.headerProfileBasket}><FontAwesomeIcon icon={faBasketShopping}/></button>
