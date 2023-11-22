@@ -61,7 +61,7 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
         </div>
       </div>
     );
-  }else {
+  } else {
     return null
   }
 };

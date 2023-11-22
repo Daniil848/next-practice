@@ -1,9 +1,9 @@
 'use client'
 
-import { FormEventHandler, useState } from "react";
+import { useState } from "react";
 import useSWR from "swr";
 import { getProductsBySearch } from "@/services/fetching";
-import Registration from "./Registration";
+import Registration from "../Registration/Registration";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Header.module.scss";
@@ -15,7 +15,6 @@ const Header = () => {
   const [logIn, setLogIn] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
-
   const handleSearch= async () => {
     const  products = await getProductsBySearch(search);
     mutate(products);
@@ -24,11 +23,12 @@ const Header = () => {
   const handleLogIn = () => {
     setLogIn(true);
     setSignIn(false);
-  }
+  };
+
   const handleSignIn = () => {
     setSignIn(true);
     setLogIn(false);
-  }
+  };
 
   return (
     <>

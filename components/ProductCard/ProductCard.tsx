@@ -2,21 +2,9 @@ import Link from "next/link";
 import styles from "./Product.module.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Product } from "@/types/types";
 
-type Props = {
-  id : number,
-  title: string,
-  price: number,
-  description: string,
-  image: string,
-  category: string | null,
-  rating : {
-    rate : number,
-    count : number,
-  },
-}
-
-export const ProductCard = ({product} : {product : Props}) => {
+export const ProductCard = ({product}: {product: Product}) => {
   return (
     <Link
     href={`/product/${product.id}`}
