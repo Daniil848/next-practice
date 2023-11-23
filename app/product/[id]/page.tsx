@@ -1,6 +1,7 @@
 import { getSingleProduct } from "@/services/fetching";
 import styles from "./ProductPage.module.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Product } from "@/types/types";
 import { Metadata } from "next";
@@ -16,7 +17,9 @@ type Props = {
   }
 };
 
-const Product = async({params : {id}} : Props) => {
+const faPropIcon = faStar as IconProp;
+
+const Product = async({params : {id}} : Props,) => {
   const product : Product | undefined = await getSingleProduct(id);
 
   if (product === undefined) return null;
@@ -35,7 +38,7 @@ const Product = async({params : {id}} : Props) => {
             </div> 
             <p className={styles.productInfoRating}>
               <span className={styles.productInfoRatingRate}>{product?.rating?.rate}</span>
-              <span className={styles.productInfoRatingImg}>{/*<FontAwesomeIcon icon={faStar}/>*/}</span>
+              <span className={styles.productInfoRatingImg}><FontAwesomeIcon icon={faPropIcon}/></span>
             </p>
             <p className={styles.productPrice}>{product?.price} $</p>
             <button className={styles.productButton}>Add to card</button>

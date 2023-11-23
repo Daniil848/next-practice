@@ -6,7 +6,11 @@ import { getProductsBySearch } from "@/services/fetching";
 import Registration from "../Registration/Registration";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import styles from "./Header.module.scss";
+
+const faPropBasket = faBasketShopping as IconProp;
+const faPropMagny = faMagnifyingGlass as IconProp;
 
 const Header = () => {
   const { mutate } = useSWR("products");
@@ -50,7 +54,7 @@ const Header = () => {
               e.preventDefault()
             }}
           > 
-            {/* <FontAwesomeIcon className={styles.headerSearchIcon} icon={faMagnifyingGlass}/> */} 
+            <FontAwesomeIcon className={styles.headerSearchIcon} icon={faPropMagny}/>
             <input 
               type="search" 
               id="default-search" 
@@ -65,7 +69,7 @@ const Header = () => {
             >Search</button>
           </form>
           <div className={styles.rightContent}>
-            <button className={styles.headerProfileBasket}>{/* <FontAwesomeIcon icon={faBasketShopping}/>*/}</button> 
+            <button className={styles.headerProfileBasket}><FontAwesomeIcon icon={faPropBasket}/></button> 
           </div>
           <div className={styles.registration}>
             <button 
