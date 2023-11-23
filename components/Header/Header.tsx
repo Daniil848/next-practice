@@ -50,7 +50,7 @@ const Header = () => {
               e.preventDefault()
             }}
           > 
-            <FontAwesomeIcon className={styles.headerSearchIcon} icon={faMagnifyingGlass}/>  
+            {/* <FontAwesomeIcon className={styles.headerSearchIcon} icon={faMagnifyingGlass}/> */} 
             <input 
               type="search" 
               id="default-search" 
@@ -65,7 +65,7 @@ const Header = () => {
             >Search</button>
           </form>
           <div className={styles.rightContent}>
-            <button className={styles.headerProfileBasket}><FontAwesomeIcon icon={faBasketShopping}/></button>
+            <button className={styles.headerProfileBasket}>{/* <FontAwesomeIcon icon={faBasketShopping}/>*/}</button> 
           </div>
           <div className={styles.registration}>
             <button 

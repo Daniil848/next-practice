@@ -58,7 +58,7 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
     return (
       <div className={styles.wrapper}>
         <div className={styles.form}>
-          <button className={styles.formClose} onClick={() => handleClose()}><FontAwesomeIcon icon={faXmark}/></button>
+          <button className={styles.formClose} onClick={() => handleClose()}>{/*<FontAwesomeIcon icon={faXmark}/>*/}</button>
           <p className={styles.formTitle}>{logIn === true ? "Log In" : "Sign In"}</p>
            <div className={styles.inputsWrapper}>
             <input type="text" placeholder="User name" onChange={e => setUserName(e.target.value)} className={styles.input}/>
