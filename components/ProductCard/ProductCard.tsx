@@ -19,7 +19,7 @@ export const ProductCard = ({product}: {product: Product}) => {
         <div>
           <p className={styles.productInfoRating}>
             <span className={styles.productInfoRatingRate}>{product.rating.rate}</span>
-            <span className={styles.productInfoRatingImg}><FontAwesomeIcon icon={faStar}/></span>
+            <span className={styles.productInfoRatingImg}>{/*<FontAwesomeIcon icon={faStar}/>*/}</span>
           </p>
           <p className={styles.productInfoPrice}>${product.price}</p>
         </div>
