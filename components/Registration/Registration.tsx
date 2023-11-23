@@ -1,12 +1,11 @@
 "use client"
 
 import { User } from "@/types/types";
-import { useState } from "react";
-import useSWR from "swr";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import styles from "./Registration.module.scss";
-import { signInFetch } from "@/services/fetching";
+import { signInFetch, logInFetch, getUsers } from "@/services/fetching";
 
 type Props = {
   logIn : boolean,
@@ -21,23 +20,39 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  let userDB : User = {
-    id : 0,
-    email : email,
+  // let userDB : User = {
+  //   id : 0,
+  //   email : email,
+  //   username : userName,
+  //   password : password,
+  // };
+
+  let userLogIn = {
     username : userName,
     password : password,
-  };
-
-  const handleSignIn = async () => {
-    if ( email !== "" && userName !== "" && password !== "" ) {
-      await signInFetch(userDB)
-    }
   }
+
+  // const handleSignIn = async () => {
+  //   if ( email !== "" && userName !== "" && password !== "" ) {
+  //     await signInFetch(userDB)
+  //   }
+  // };
+
+  const handleLogIn = async () => {
+    if ( userName !== "" && password !== "" ) {
+      await logInFetch(userLogIn)
+    }
+  };
 
   const handleClose = () => {
     closeLogIn(false);
     closeSignIn(false);
-  }
+  };
+
+  useEffect(() => {
+    const users = getUsers();
+    console.log(users);
+  },[])
 
   if (signIn || logIn === true) {
     return (
@@ -45,19 +60,22 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
         <div className={styles.form}>
           <button className={styles.formClose} onClick={() => handleClose()}><FontAwesomeIcon icon={faXmark}/></button>
           <p className={styles.formTitle}>{logIn === true ? "Log In" : "Sign In"}</p>
-          {signIn && <div className={styles.inputsWrapper}>
+           <div className={styles.inputsWrapper}>
             <input type="text" placeholder="User name" onChange={e => setUserName(e.target.value)} className={styles.input}/>
-          </div>}
-          <div className={styles.inputsWrapper}>
-            <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} className={styles.input}/>
           </div>
+          {signIn &&<div className={styles.inputsWrapper}>
+            <input type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} className={styles.input}/>
+          </div>}
           <div className={styles.inputsWrapper}>
             <input type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} className={styles.input}/>
           </div>
-          <button
+          {signIn && <button
             className={styles.button}
-            onClick={()=> handleSignIn()}
-          >OK</button>
+          >Sign In</button>}
+          {logIn && <button
+            className={styles.button}
+            onClick={()=> handleLogIn()}
+          >Log In</button>}
         </div>
       </div>
     );
