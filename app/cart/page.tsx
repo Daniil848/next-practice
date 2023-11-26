@@ -19,12 +19,12 @@ const Cart = () => {
 
       const cart =  await getSingleCart(Number(id));
       const productIds = cart?.products.map(product => product.productId);
-      const quantity = cart?.products.map(product => product.quantity);
-      setQuantity(quantity);
       const products = await getProductsInCart(productIds);
       
       setProducts(products);
       
+      const quantity = cart?.products.map(product => product.quantity);
+      setQuantity(quantity);
 
       const totalPrice = products?.reduce((total, product, index) => total + (product.price * quantity[index]), 0);
       setTotal(totalPrice);
@@ -49,9 +49,9 @@ const Cart = () => {
               </div>
               <div className={styles.productInfo}>
                 <p className={styles.productInfoTitle}>{product.title}</p>
-                <p className={styles.productInfoCount}>Quantity: {quantity[index]}</p>
+                {quantity && quantity[index] &&<p className={styles.productInfoCount}>Quantity: {quantity[index]}</p>}
                 <div className={styles.productInfoBuy}>
-                  <p className={styles.productInfoPrice}>${product.price * quantity[index]}</p>
+                {quantity && quantity[index] &&<p className={styles.productInfoPrice}>${product.price * quantity[index]}</p>}
                 </div>
               </div>
             </Link>
