@@ -18,6 +18,8 @@ const Cart = () => {
       const id = getCookie('userID');   
 
       const cart =  await getSingleCart(Number(id));
+      console.log(cart);
+      
       const productIds = cart?.products.map(product => product.productId);
       const products = await getProductsInCart(productIds);
       

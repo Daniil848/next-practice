@@ -39,7 +39,9 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
   const handleLogIn = async () => {
     if ( userName !== "" && password !== "" ) {
       const user = await logInFetch(userLogIn);
-      setCookie("userID", String(user.id), {maxAge : 100000});
+      const coockieId = user[0]
+      
+      setCookie("userID", `${coockieId.id}`, {maxAge : 100000});
     }
   };
 
