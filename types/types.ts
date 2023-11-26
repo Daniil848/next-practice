@@ -37,5 +37,8 @@ export type CartType = {
   id: number,
   userId: number,
   date: string,
-  products: Product[],
+  products: [
+    productId : any,
+    quantity: number,
+  ],
 }

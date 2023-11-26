@@ -49,8 +49,7 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
   };
 
   useEffect(() => {
-    const users = getUsers();
-    console.log(users);
+    getUsers();
   },[])
 
   if (signIn || logIn === true) {

@@ -1,3 +1,5 @@
+"use server"
+
 import { CartType, Product, User } from "@/types/types";
 import axios from "axios";
 
@@ -60,6 +62,7 @@ export const logInFetch = async (userLogIn: { username: string; password: string
 export const getUsers = async () => {
   try {
     const {data} = await axios.get('https://fakestoreapi.com/users');
+    console.log(data);
     return data;
   } catch (err) {
     console.log(err);
@@ -78,12 +81,21 @@ export const getProductsBySearch =async (search: string) => {
   };
 };
 
-export const getSingleCart =async (id: number) => {
+export const getSingleCart = async (id: number) => {
   try {
     const {data}: { data: CartType } = await axios.get(`https://fakestoreapi.com/carts/${id}`);
-    console.log(data);
     return data;
   } catch (err) {
     console.log(err);
   };
 };
+
+export const getProductsInCart = async (productIds : number[] | undefined,) => {
+  try {
+    const {data}: { data: Product[] } = await axios.get(`https://fakestoreapi.com/products`);
+    const filteredData = data.filter(product => productIds?.includes(product.id));
+    return filteredData;
+  } catch (err) {
+    console.log(err);
+  };
+}

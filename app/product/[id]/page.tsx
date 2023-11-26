@@ -1,3 +1,5 @@
+"use server"
+
 import { getSingleProduct } from "@/services/fetching";
 import styles from "./ProductPage.module.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";

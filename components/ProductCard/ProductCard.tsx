@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./Product.module.scss";
+import styles from "./ProductCard.module.scss";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
