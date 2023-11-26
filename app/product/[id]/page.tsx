@@ -17,7 +17,7 @@ type Props = {
   }
 };
 
-const faPropIcon = faStar as IconProp;
+const faStarIcon = faStar as IconProp;
 
 const Product = async({params : {id}} : Props,) => {
   const product : Product | undefined = await getSingleProduct(id);
@@ -38,7 +38,7 @@ const Product = async({params : {id}} : Props,) => {
             </div> 
             <p className={styles.productInfoRating}>
               <span className={styles.productInfoRatingRate}>{product?.rating?.rate}</span>
-              <span className={styles.productInfoRatingImg}><FontAwesomeIcon icon={faPropIcon}/></span>
+              <span className={styles.productInfoRatingImg}><FontAwesomeIcon icon={faStarIcon}/></span>
             </p>
             <p className={styles.productPrice}>{product?.price} $</p>
             <button className={styles.productButton}>Add to card</button>

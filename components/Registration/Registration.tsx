@@ -2,8 +2,6 @@
 
 import { User } from "@/types/types";
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import styles from "./Registration.module.scss";
 import { signInFetch, logInFetch, getUsers } from "@/services/fetching";
 
@@ -58,7 +56,7 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
     return (
       <div className={styles.wrapper}>
         <div className={styles.form}>
-          <button className={styles.formClose} onClick={() => handleClose()}>x</button>
+          <button className={styles.formClose} onClick={() => handleClose()}>X</button>
           <p className={styles.formTitle}>{logIn === true ? "Log In" : "Sign In"}</p>
            <div className={styles.inputsWrapper}>
             <input type="text" placeholder="User name" onChange={e => setUserName(e.target.value)} className={styles.input}/>

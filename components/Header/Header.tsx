@@ -2,11 +2,15 @@
 
 import { useState } from "react";
 import useSWR from "swr";
-import { getProductsBySearch } from "@/services/fetching";
 import Registration from "../Registration/Registration";
+import { getProductsBySearch } from "@/services/fetching";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import styles from "./Header.module.scss";
+
+const faMagnifyingGlassIcon = faMagnifyingGlass as IconProp;
+const faShoppingBasketIcon = faShoppingBasket as IconProp;
 
 const Header = () => {
   const { mutate } = useSWR("products");
@@ -50,7 +54,7 @@ const Header = () => {
               e.preventDefault()
             }}
           > 
-            {/* <FontAwesomeIcon className={styles.headerSearchIcon} icon={faPropMagny}/> */}
+            <FontAwesomeIcon className={styles.headerSearchIcon} icon={faMagnifyingGlassIcon}/>
             <input 
               type="search" 
               id="default-search" 
@@ -65,7 +69,7 @@ const Header = () => {
             >Search</button>
           </form>
           <div className={styles.rightContent}>
-            <button className={styles.headerProfileBasket}>{/*<FontAwesomeIcon icon={faPropBasket}/>*/}</button> 
+            <button className={styles.headerProfileBasket}><FontAwesomeIcon icon={faShoppingBasketIcon}/></button> 
           </div>
           <div className={styles.registration}>
             <button 
