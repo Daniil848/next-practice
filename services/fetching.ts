@@ -1,4 +1,4 @@
-import { Product, User } from "@/types/types";
+import { CartType, Product, User } from "@/types/types";
 import axios from "axios";
 
 export const getProducts = async () => {
@@ -76,4 +76,14 @@ export const getProductsBySearch =async (search: string) => {
   } catch (err) {
     console.log(err);
   };
-}
+};
+
+export const getSingleCart =async (id: number) => {
+  try {
+    const {data}: { data: CartType } = await axios.get(`https://fakestoreapi.com/carts/${id}`);
+    console.log(data);
+    return data;
+  } catch (err) {
+    console.log(err);
+  };
+};

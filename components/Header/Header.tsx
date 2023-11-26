@@ -75,7 +75,7 @@ const Header = () => {
           <div className={styles.rightContent}>
             <Link href={"/cart"} className={styles.headerProfileBasket}><FontAwesomeIcon icon={faShoppingBasketIcon}/></Link> 
           </div>
-          {!cookie ? <div className={styles.registration}>
+          <div className={styles.registration}>
             <button 
               className={styles.registrationLogIn}
               onClick={() => handleLogIn()}
@@ -84,8 +84,7 @@ const Header = () => {
               className={styles.registrationSignIn}
               onClick={() => handleSignIn()}
             >Sign in</button>
-          </div> : 
-          <button>autorized</button>}
+          </div>
         </div>
       </header>
     </>

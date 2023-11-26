@@ -32,3 +32,10 @@ export type User = {
   },
   phone: string,
 };
+
+export type CartType = {
+  id: number,
+  userId: number,
+  date: string,
+  products: Product[],
+}
