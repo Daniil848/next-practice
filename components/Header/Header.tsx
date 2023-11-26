@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faShoppingBasket } from "@fortawesome/free-solid-svg-icons";
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import styles from "./Header.module.scss";
+import Link from "next/link";
 
 const faMagnifyingGlassIcon = faMagnifyingGlass as IconProp;
 const faShoppingBasketIcon = faShoppingBasket as IconProp;
@@ -69,7 +70,7 @@ const Header = () => {
             >Search</button>
           </form>
           <div className={styles.rightContent}>
-            <button className={styles.headerProfileBasket}><FontAwesomeIcon icon={faShoppingBasketIcon}/></button> 
+            <Link href={"/cart"} className={styles.headerProfileBasket}><FontAwesomeIcon icon={faShoppingBasketIcon}/></Link> 
           </div>
           <div className={styles.registration}>
             <button 
