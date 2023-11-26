@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import useSWR from "swr";
+import { getCookie } from "cookies-next";
 import Registration from "../Registration/Registration";
 import { getProductsBySearch } from "@/services/fetching";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,6 +16,8 @@ const faShoppingBasketIcon = faShoppingBasket as IconProp;
 
 const Header = () => {
   const { mutate } = useSWR("products");
+
+  const cookie = getCookie("userID");
 
   const [signIn, setSignIn] = useState<boolean>(false);
   const [logIn, setLogIn] = useState<boolean>(false);
@@ -72,7 +75,7 @@ const Header = () => {
           <div className={styles.rightContent}>
             <Link href={"/cart"} className={styles.headerProfileBasket}><FontAwesomeIcon icon={faShoppingBasketIcon}/></Link> 
           </div>
-          <div className={styles.registration}>
+          {!cookie ? <div className={styles.registration}>
             <button 
               className={styles.registrationLogIn}
               onClick={() => handleLogIn()}
@@ -81,7 +84,8 @@ const Header = () => {
               className={styles.registrationSignIn}
               onClick={() => handleSignIn()}
             >Sign in</button>
-          </div>
+          </div> : 
+          <button>autorized</button>}
         </div>
       </header>
     </>

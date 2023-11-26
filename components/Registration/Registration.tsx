@@ -2,8 +2,9 @@
 
 import { User } from "@/types/types";
 import { useState, useEffect } from "react";
-import styles from "./Registration.module.scss";
 import { signInFetch, logInFetch, getUsers } from "@/services/fetching";
+import styles from "./Registration.module.scss";
+import { setCookie, getCookie } from "cookies-next";
 
 type Props = {
   logIn : boolean,
@@ -13,7 +14,6 @@ type Props = {
 }
 
 const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
-
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +39,7 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
   const handleLogIn = async () => {
     if ( userName !== "" && password !== "" ) {
       const user = await logInFetch(userLogIn);
-      return user;
+      setCookie("userID", user, {maxAge : 100000});
     }
   };
 
