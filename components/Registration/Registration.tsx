@@ -38,7 +38,8 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
 
   const handleLogIn = async () => {
     if ( userName !== "" && password !== "" ) {
-      await logInFetch(userLogIn)
+      const user = await logInFetch(userLogIn);
+      return user;
     }
   };
 

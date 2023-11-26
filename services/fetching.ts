@@ -49,7 +49,7 @@ export const signInFetch = async (userDB : User) => {
 export const logInFetch = async (userLogIn: { username: string; password: string; }) => {
   try {
     const { username, password } = userLogIn;
-    const {data} = await axios.post('https://fakestoreapi.com/auth/login', {
+    const {data} = await axios.post('https://fakestoreapi.com/users', {
       username: username,
       password: password,
     });
