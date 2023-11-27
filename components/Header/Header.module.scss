@@ -25,20 +25,19 @@
     .rightContent {
       @apply flex;
 
+      .registration {
+      @apply flex ml-2;
+
+        .registrationLogIn {
+          @apply px-5 py-2.5 font-medium rounded-lg text-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300;
+        }
+        .registrationSignIn {
+          @apply w-fit px-5 py-2.5 ml-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm  focus:outline-none;
+        }
+      }
+
       .headerProfileBasket {
         @apply w-10 h-10 z-30 mr-2 text-blue-700 text-3xl;
-      }
-    }
-
-    .registration {
-      @apply absolute -right-[370px] flex ml-2;
-
-      .registrationLogIn {
-        @apply px-5 py-2.5 font-medium rounded-lg text-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300;
-      }
-
-      .registrationSignIn {
-        @apply w-fit px-5 py-2.5 ml-1 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm  focus:outline-none;
       }
     }
   }

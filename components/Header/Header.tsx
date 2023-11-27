@@ -72,18 +72,24 @@ const Header = () => {
               className={styles.headerSearchButton} 
             >Search</button>
           </form>
+          
           <div className={styles.rightContent}>
-            <Link href={"/cart"} className={styles.headerProfileBasket}><FontAwesomeIcon icon={faShoppingBasketIcon}/></Link> 
-          </div>
+          {cookie === null || undefined ?
           <div className={styles.registration}>
             <button 
-              className={styles.registrationLogIn}
+              className={styles.registrationSignIn}
               onClick={() => handleLogIn()}
-            >Log in</button>
-            <button 
+            >Log in</button> 
+            {/* <button 
               className={styles.registrationSignIn}
               onClick={() => handleSignIn()}
-            >Sign in</button>
+            >Sign in</button> */}
+          </div>  
+            :
+            <Link
+              href={"/cart"}
+              className={styles.headerProfileBasket}
+            ><FontAwesomeIcon icon={faShoppingBasketIcon}/></Link>}
           </div>
         </div>
       </header>

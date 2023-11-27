@@ -40,8 +40,8 @@ const Registration = ({logIn, signIn, closeLogIn, closeSignIn} : Props) => {
     if ( userName !== "" && password !== "" ) {
       const user = await logInFetch(userLogIn);
       const coockieId = user[0]
-      
       setCookie("userID", `${coockieId.id}`, {maxAge : 100000});
+      closeLogIn(false);
     }
   };
 
