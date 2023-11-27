@@ -86,8 +86,8 @@ export const getProductsBySearch =async (search: string) => {
 
 export const getSingleCart = async (id: number) => {
   try {
-    const {data}: { data: CartType } = await axios.get(`https://fakestoreapi.com/carts/${id}`);
-    return data;
+    const {data}: { data: CartType[] } = await axios.get(`https://fakestoreapi.com/carts/user/${id}`);
+    return data[0];
   } catch (err) {
     console.log(err);
   };

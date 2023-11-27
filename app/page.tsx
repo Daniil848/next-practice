@@ -17,13 +17,13 @@ const Home = () => {
       <div className={styles.products}>
         {products?.map((product: Product) => (
           <ProductCard
-            key={product.id} 
+            key={product.id}
             product={product}
           />
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Home;
