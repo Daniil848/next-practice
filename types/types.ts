@@ -39,6 +39,6 @@ export type CartType = {
   date: string,
   products: [
     productId : any,
-    quantity: number,
+    quantity: any,
   ],
 }

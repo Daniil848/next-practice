@@ -10,7 +10,7 @@ import styles from "./Cart.module.scss";
 
 const Cart = () => {
   const [products, setProducts] = useState<Product[] | undefined>([]);
-  const [quantity, setQuantity] = useState<number[] | undefined>([]);
+  const [quantity, setQuantity] = useState<any[] | undefined>([]);
   const [total, setTotal] = useState<number | undefined>(0);
 
   useEffect(()=> {
@@ -28,13 +28,19 @@ const Cart = () => {
       const quantity = cart?.products.map(product => product.quantity);
       setQuantity(quantity);
 
-      const totalPrice = products?.reduce((total, product, index) => total + (product.price * quantity[index]), 0);
+      const totalPrice = products?.reduce((total, product, index) => {
+        if (Array.isArray(quantity) && quantity[index]) {
+          return total + (product.price * quantity[index]);
+        } else {
+          return total;
+        }
+      }, 0);
       setTotal(totalPrice);
 
     };
 
     fetchData();
-  }, [])
+  }, []);
 
   return (
     <>
