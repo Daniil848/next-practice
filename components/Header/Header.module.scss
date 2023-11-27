@@ -12,7 +12,7 @@
       @apply flex;
 
       .headerSearchIcon {
-        @apply absolute top-3 pl-3 text-lg w-4 h-4 text-slate-500;
+        @apply absolute top-1 pl-3 text-lg w-8 h-8 fill-none;
       }
       .headerSearchInput {
         @apply block w-96 h-10 p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-s-lg bg-white focus:outline-none focus:ring-blue-500 focus:border-blue-500;
@@ -37,7 +37,7 @@
       }
 
       .headerProfileBasket {
-        @apply w-10 h-10 z-30 mr-2 text-blue-700 text-3xl;
+        @apply w-10 h-10 z-30 fill-blue-700;
       }
     }
   }
